@@ -3,7 +3,7 @@
 
 // Global defination of the page state
 let state = {
-    pageId: "schedulePage",
+    pageId: "homePage",
     pageTitle: "Empower Ability Labs - Home"
 };
 
