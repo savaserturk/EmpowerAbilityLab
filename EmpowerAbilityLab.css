@@ -1,0 +1,134 @@
+/* Used to hide all page sections by default by setting their display property to 'none'. */
+.page-content {
+    display: none;
+    /* Hide content by default */
+}
+
+/* This ensures the selected page is visible, while all other pages (which have the .page-content class) remain hidden. */
+.active-page {
+    display: block;
+    /* Show active page */
+}
+
+/* Styles the footer element, ensuring it stays at the bottom of the page.  */
+footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* Modal CSS override */
+.modal {
+
+    /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+/* Automatically adjusts the width of the legend based on its content */
+legend {
+    width: auto;
+}
+
+
+/* CSS for Skip to main content */
+#skippy {
+    overflow: hidden;
+    margin: -1;
+    display: block !important;
+    padding: 1.2em;
+    color: #fff;
+    background-color: #343a40;
+    outline: 0;
+}
+
+.skiplink-text {
+    padding: .5em;
+    outline: 1px dotted;
+}
+
+
+div[id='idTellUsAbout'] {
+    margin-left: -3em;
+}
+
+/* CSS for Switch Toggle */
+
+/*
+     *   The CheckboxSwitch is licensed according to the W3C Software License at
+     *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+     *
+     *   File:  switch-checkbox.css
+     *
+     *   Desc:  Switch widget using input[type=checkbox] that implements ARIA Authoring Practices
+*/
+
+label[id="idLabel"] {
+    display: block;
+    margin-left: -1.5em;
+    padding: 4px 4px 6px 6px;
+    border: 0 solid #005a9c;
+    border-radius: 5px;
+    width: 25em;
+}
+
+label .label {
+    display: inline-block;
+    user-select: none;
+    width: 20em;
+}
+
+label input[role="switch"] {
+    opacity: 0;
+}
+
+label input[role="switch"]~.state {
+    display: inline-block;
+    user-select: none;
+}
+
+label input[role="switch"]~.state>.container {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    border: 2px solid black;
+    width: 42px;
+    height: 27px;
+    border-radius: 11px;
+
+}
+
+label input[role="switch"]~.state>.container>.position {
+    position: relative;
+    top: 1px;
+    left: -10px;
+    display: inline-block;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 9px;
+    width: 14px;
+    height: 14px;
+    background: black;
+    opacity: 0.6;
+}
+
+label input[role="switch"]:checked~.state>.container>.position {
+    left: 5px;
+    border-color: green;
+    background: green;
+    opacity: 1;
+}
+
+label.focus,
+label[id="idLabel"]:hover {
+    padding: 2px 2px 4px 4px;
+    border-width: 2px;
+    outline: none;
+    background-color: #def;
+    cursor: pointer;
+}
+
+label.focus span.container,
+label:hover span.container {
+    background-color: rgb(255, 255, 255);
+}
