@@ -14,15 +14,16 @@
 
   <!-- Custom styles for Empower Ability Labs -->
   <link rel="stylesheet" href="EmpowerAbilityLab.css">
-  </head>
+</head>
 
 <body>
-<!-- Skip to Main Content Link (appears when focused) -->
-<a id="skippy" class="sr-only sr-only-focusable" href="#main-content"><div class="container">
-  <span class="skiplink-text">Skip to main content</span>
-</div>
-</a>
-  <header>    
+  <!-- Skip to Main Content Link (appears when focused) -->
+  <a id="skippy" class="sr-only sr-only-focusable" href="#main-content">
+    <div class="container">
+      <span class="skiplink-text">Skip to main content</span>
+    </div>
+  </a>
+  <header>
     <!-- div replaced with nav element, navigation and aria-label attributes added -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation" aria-label="Main Menu">
       <a class="navbar-brand" href="#">
@@ -51,6 +52,7 @@
       </div>
     </nav>
   </header>
+  
   <main id="main-content">
     <!-- Content for Home page-->
     <div id="homePage" class="page-content active-page">
@@ -99,10 +101,13 @@
               of inclusion. </p>
             <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial">Learn more...</a>
           </article>
-          
+
         </div>
         <hr>
       </section>
+      <br>
+      <br>
+      <br>
       <!-- /container -->
     </div>
 
@@ -139,7 +144,7 @@
           <p>Invite a speaker with disabilities to take share their unique journey. This captivating addition to your
             upcoming event will offer insights that resonate, inspire, educate, and enrich your team collective
             understanding of inclusion.</p>
-          </article>
+        </article>
         <article aria-labelledby="article7">
           <h1 class="h2" id="article7">Usability testing</h1>
           <p>Go beyond WCAG! Involve individuals with disabilities in usability testing to gather valuable insights for
@@ -147,8 +152,11 @@
             feasible and cost-effective. You have access to a diverse community of people with disabilities, who use
             various assistive technologies. With technical expertise ranging from novice to expert, our community can
             support your product lifecycle from user research, to design, to QA.</p>
-        </article>        
+        </article>
       </section>
+      <br>
+      <br>
+      <br>
     </div>
 
     <!-- Content for Schedule page-->
@@ -172,7 +180,7 @@
       </div>
       <section class="container">
         <!-- Schedule a call form -->
-        <form id="formSchedule">
+        <form id="formSchedule" class="col-sm-12">
           <!-- Message for users to use during the validation -->
           <div class="form-group row">
             <div class="alert alert-danger" id="idMessage" role="alert" hidden>
@@ -197,7 +205,7 @@
               <input type="text" class="form-control" id="idEmail" required>
             </div>
           </div>
-          <div class="form-group row">       
+          <div class="form-group row">
             <!-- Filedset for What would like to talk about-->
             <fieldset class="form-group col-md-6 border">
               <legend>
@@ -225,11 +233,11 @@
             <div class="col-sm-6 ml-3">
               <label for="idAbout">Please tell us about your event</label>
               <textarea class="form-control" id="idAbout" rows="3"></textarea>
-          </div>
+            </div>
           </div>
           <!-- Switch button -->
           <div class="form-group row">
-            <label id="idLabel">              
+            <label id="idLabel">
               <input id="idSwitch" type="checkbox" role="switch">
               <span class="state">
                 <span class="container">
@@ -240,22 +248,24 @@
             </label>
           </div>
           <!-- Schedule a call button -->
-          <div class="form-group row"> 
-          <button id="idBtnSchedule" class="btn btn-primary" type="submit">Schedule a call</button>
+          <div class="form-group row">
+            <button id="idBtnSchedule" class="btn btn-primary" type="button">Schedule a call</button>
           </div>
           <br>
           <br>
           <br>
         </form>
       </section>
-    </div>
+      <br>
+      <br>
+      <br>
     </div>
 
   </main>
   <!-- Footer -->
   <footer class="fixed-bottom">
     <div class="container">
-      <span class="text-muted">© Copyright Empower Ability Labs Inc 2023. All rights reserved.</span>
+      <span class="text-light">© Copyright Empower Ability Labs Inc 2023. All rights reserved.</span>
     </div>
   </footer>
   <!-- Modal - Community Steering Committee -->

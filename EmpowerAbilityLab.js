@@ -243,6 +243,7 @@ function formRunner() {
             // Reset all form fields
             document.getElementById("formSchedule").reset();
             divElement.setAttribute('hidden', '');  
+            scheduleButton.focus();
 
         }
 
@@ -255,14 +256,13 @@ function formRunner() {
         // Hide message field
         message.hidden = true;
 
-
         // Get the email value and remove extra spaces
         const emailValue = emailInput.value.trim();
 
         // Get the phone value and remove extra spaces
         const phoneValue = phoneNumberInput.value.trim();
 
-
+        // Defination of error list array
         let errorList = [];
 
         // Check if the input field is empty
@@ -278,7 +278,7 @@ function formRunner() {
             errorList.push('Please enter a valid email address.');
         }
 
-
+        // Phone number regex pattern
         const phonePattern = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/;
 
         //if(phoneValue != '' && !phoneValue.value.match(phonePattern))
@@ -294,6 +294,7 @@ function formRunner() {
             message.classList.remove("alert-success");
             message.classList.add("alert-danger");
             message.hidden = false;
+            scheduleButton.focus();
             // Return false
             return false;
         }
