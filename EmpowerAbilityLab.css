@@ -18,6 +18,27 @@ footer {
     background-color: #343a40;
 }
 
+/* It is overrided because of the colour contrast*/
+a {
+    color: #006ee5;
+}
+
+.nav-item.active .nav-link{
+    font-weight: bold;
+    color: #f6c447 !important;
+}
+
+nav div ul li a:visited,
+nav div ul li a {
+    color: #ffffff !important;
+}
+
+nav div ul li a:hover {
+    color: #f7da93 !important;
+}
+
+
+
 /* Modal CSS override */
 .modal {
 
