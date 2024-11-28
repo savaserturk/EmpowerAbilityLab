@@ -20,15 +20,14 @@ footer {
 
 /* This CSS rule removes any padding from the top of the body element */
 body {
-    /* Setting padding-top to 0, overrides any other styles */
-    padding-top: 0 !important; 
+    /* Setting padding-top to 0, overrides any other styles  */
+    padding-top: 0 !important;
 }
 
 /* It is overridden because of the colour contrast */
 a {
     color: #006ee5;
 }
-
 
 /* This rule makes the active navigation item bold and changes its color */
 .nav-item.active .nav-link {
@@ -48,7 +47,6 @@ nav div ul li a:hover {
 }
 
 
-
 /* Modal CSS override */
 .modal {
 
@@ -66,7 +64,6 @@ legend {
 /* CSS for Skip to main content */
 #skippy {
     overflow: hidden;
-    margin: -1;
     display: block !important;
     padding: 1.2em;
     color: #fff;
