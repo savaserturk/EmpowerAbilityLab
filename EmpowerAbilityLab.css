@@ -18,23 +18,33 @@ footer {
     background-color: #343a40;
 }
 
-/* It is overrided because of the colour contrast*/
+/* This CSS rule removes any padding from the top of the body element */
+body {
+    /* Setting padding-top to 0, overrides any other styles */
+    padding-top: 0 !important; 
+}
+
+/* It is overridden because of the colour contrast */
 a {
     color: #006ee5;
 }
 
-.nav-item.active .nav-link{
-    font-weight: bold;
-    color: #f6c447 !important;
+
+/* This rule makes the active navigation item bold and changes its color */
+.nav-item.active .nav-link {
+    font-weight: bold; /* Set the font to bold for active navigation link */
+    color: #f6c447 !important; /* Change the color to a gold shade */
 }
 
+/* This rule sets the color of all visited and unvisited links in the navigation to white */
 nav div ul li a:visited,
 nav div ul li a {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Set link color to white, overrides any other styles */
 }
 
+/* This rule changes the color of links on hover to a light yellow */
 nav div ul li a:hover {
-    color: #f7da93 !important;
+    color: #f7da93 !important; /* Set hover color to a light yellow */
 }
 
 
@@ -62,6 +72,10 @@ legend {
     color: #fff;
     background-color: #343a40;
     outline: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1031;
 }
 
 .skiplink-text {
@@ -153,3 +167,4 @@ label.focus span.container,
 label:hover span.container {
     background-color: rgb(255, 255, 255);
 }
+
