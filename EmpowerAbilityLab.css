@@ -1,15 +1,3 @@
-/* Used to hide all page sections by default by setting their display property to 'none'. */
-.page-content {
-    display: none;
-    /* Hide content by default */
-}
-
-/* This ensures the selected page is visible, while all other pages (which have the .page-content class) remain hidden. */
-.active-page {
-    display: block;
-    /* Show active page */
-}
-
 /* Styles the footer element, ensuring it stays at the bottom of the page.  */
 footer {
     width: 100%;
@@ -27,6 +15,10 @@ body {
 /* It is overridden because of the colour contrast */
 a {
     color: #006ee5;
+}
+
+h1[tabIndex]:focus {
+    outline: 3px solid purple !important;
 }
 
 /* This rule makes the active navigation item bold and changes its color */

@@ -1,0 +1,104 @@
+<!-- Content for Schedule page-->
+<div id="scheduleContent">
+    <div class="jumbotron">
+        <section class="container">
+            <div class="row">
+                <article class="col-md-8" aria-labelledby="article8">
+                    <h1 class="h2" id="article8">Schedule a call</h1>
+                    <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change
+                        through
+                        immersive experiences. Fill out the form below and we'll get back to you as soon as we can to
+                        schedule a
+                        call with our sales team
+                    </p>
+                </article>
+                <div class="col-md-4">
+                    <!-- This image is used only to add ambiance or visual interest to the page. -->
+                    <img src="images/scheduleacall.png" height="150" alt="" />
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="container">
+        <!-- Schedule a call form -->
+        <form id="formSchedule" class="col-sm-12">
+            <!-- Message for users to use during the validation -->
+            <div class="form-group row">
+                <div class="alert alert-danger" id="idMessage" role="alert" hidden>
+                    You should check in on some of those fields below.
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="idBusinessName" class="col-form-label">Business Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="idBusinessName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="idPhoneNumber" class="col-form-label">Phone Number :</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="idPhoneNumber" placeholder="Example (613-123-1234)">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="idEmail" class="col-form-label">Email<span class="text-danger">*</span></label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="idEmail" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Filedset for What would like to talk about-->
+                <fieldset class="form-group col-md-6 border">
+                    <legend>
+                        <h3 class="h6">What would like to talk about</h3>
+                    </legend>
+                    <div class="col-sm-8 ml-3">
+                        <input class="form-check-input" type="checkbox" id="topicCheck1">
+                        <label class="form-check-label" for="topicCheck1">Awareness lab days and workshops
+                        </label>
+                    </div>
+                    <div class="col-sm-8 ml-3">
+                        <input class="form-check-input" type="checkbox" id="topicCheck2">
+                        <label class="form-check-label" for="topicCheck2">Invite a speaker with disabilities to your
+                            event
+                        </label>
+                    </div>
+                    <div class="col-sm-8 ml-3 mb-2">
+                        <input class="form-check-input" type="checkbox" id="topicCheck3">
+                        <label class="form-check-label" for="topicCheck3">Usability testing
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <!-- Hidden area, it will be visible when the second checkbox is clicked -->
+            <div class="form-group row" hidden id="idTellUsAbout">
+                <div class="col-sm-6 ml-3">
+                    <label for="idAbout">Please tell us about your event</label>
+                    <textarea class="form-control" id="idAbout" rows="3"></textarea>
+                </div>
+            </div>
+            <!-- Switch button -->
+            <div class="form-group row">
+                <label id="idLabel">
+                    <input id="idSwitch" type="checkbox" role="switch">
+                    <span class="state">
+                        <span class="container">
+                            <span class="position"> </span>
+                        </span>
+                    </span>
+                    <span class="label">Receive emails about updates and services </span>
+                </label>
+            </div>
+            <!-- Schedule a call button -->
+            <div class="form-group row">
+                <button id="idBtnSchedule" class="btn btn-dark" type="button">Schedule a call</button>
+            </div>
+            <br>
+            <br>
+            <br>
+        </form>
+    </section>
+    <br>
+    <br>
+    <br>
+</div>

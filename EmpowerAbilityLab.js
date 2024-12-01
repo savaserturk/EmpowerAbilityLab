@@ -4,88 +4,180 @@
 // Global defination of the page state
 let state = {
     pageId: "homePage",
-    pageTitle: "Empower Ability Labs - Home"
+    pageTitle: "Home Page - Empower Ability Labs",
+    pageUrl: "#/home"
 };
+
+// Defined page information
+const pages = [
+    { pageId: 'homePage', pageTitle: 'Home Page - Empower Ability Labs', pageUrl: '#/home' },
+    { pageId: 'servicesPage', pageTitle: 'Services Page - Empower Ability Labs', pageUrl: '#/services' },
+    { pageId: 'schedulePage', pageTitle: 'Schedule a Call Page - Empower Ability Labs', pageUrl: '#/schedule' }
+];
+
+// Get default url
+const url = location.origin + location.pathname;
 
 // Function that makes the necessary arrangements regarding the single page structure
 function singlePageRunner() {
 
     // Change the look of the app based on state
-    function render() {
+    function render(state) {
         showPage(state.pageId, state.pageTitle);
     }
 
     // Set initial state and render app for the first time
     (function initialize() {
-        window.history.replaceState(state, null, "");
+        // Replace state to the history
+        window.history.replaceState(state, null, url + state.pageUrl);
         render(state);
     })();
 
-    // Tell the browser to give old state and re-render on back
+    // It is fired when the active history entry changes while the user navigates the session history.
     window.onpopstate = function (event) {
-        if (event.state) { state = event.state; }
-        render(state);
+        // If the event contains a valid state, update the current state
+        if (event.state) {
+            state = event.state;
+            render(state);
+        } else {
+            // If no event state, get the current state from the application
+            state = getState();
+            // Check if a valid result was returned from getState
+
+            if (state.pageId == 'homePage') {
+                window.history.replaceState(state, null, url + state.pageUrl);
+            }
+            render(state);
+        }
     };
+
+
+    function getState() {
+        // Get parameter from url
+        let paramUrl = window.location.hash;
+        // Check the page is included in page list
+        let result = pages.find(page => page.pageUrl == paramUrl);
+        // Create new state object
+        let newState = new Object();
+        // Check result
+        if (result) {
+            //Set the new state if the page parameter coming from the URL is defined  
+            newState.pageId = result.pageId;
+            newState.pageTitle = result.pageTitle;
+            newState.pageUrl = result.pageUrl;
+        } else {
+            // If the page parameter coming from the URL is undefined
+            newState.pageId = 'homePage';
+            newState.pageTitle = 'Home Page - Empower Ability Labs';
+            newState.pageUrl = '#/home';
+        }
+
+        return newState;
+    }
+
+    // Get navigation links
+    const linkElements = document.querySelectorAll('.nav-link');
+
+    // Add click event to the navigation links
+    linkElements.forEach(link => link.addEventListener('click', function (e) {
+
+        // Prevent default link click action
+        e.preventDefault();
+
+        // Get pageId from the link
+        let pageId = link.getAttribute('id');
+
+        // If clicked current page link
+        if (pageId == state.pageId)
+            return;
+
+        // Set the state for the current page
+        state.pageId = link.getAttribute('id');
+
+        // Set the state title for the current page 
+        state.pageTitle = link.innerHTML + ' Page - Empower Ability Labs';
+
+        // Set the state url for the current page
+        state.pageUrl = '#/' + state.pageId.replace('Page', '');
+
+        // Update the browser's history state without reloading the page
+        window.history.pushState(state, null, url + state.pageUrl);
+
+        render(state);
+
+    }));
+
+    // Get logo link
+    const linkLogo = document.getElementById('idLogo');
+
+    linkLogo.addEventListener('click', function (e) {
+
+        // Prevent default link click action
+        e.preventDefault();
+
+        document.getElementById('homePage').click();
+    });
 
     // Function to show the selected page and hide others
     function showPage(pageId, pageTitle) {
 
-        // Get page contents
-        const pages = document.querySelectorAll('.page-content');
-        // Get active page content
-        const activePage = document.getElementById(pageId);
+        // Load source html and set the main content
+        fetch(window.location.origin + '/html/' + pageId.replace('Page', '.html'))
+            .then(response => response.text())
+            .then(html => {
 
-        // Hide all pages
-        pages.forEach(page => page.classList.remove('active-page'));
+                // Get main content to update with selected page
+                let mainElement = document.getElementById('main-content');
 
-        // Show the selected page
-        activePage.classList.add('active-page');
+                // Get navigation links
+                const linkElements = document.querySelectorAll('.nav-link');
 
-        // Update active nav link
-        const navLinks = document.querySelectorAll('.nav-link');
-        // Remove 'active' from all nav links
-        navLinks.forEach(link => link.parentElement.classList.remove('active'));
-        // Add 'active' to the current link 
-        document.getElementById(pageId.replace('Page', 'Link')).parentElement.classList.add('active');
+                // Set main content with selected content
+                mainElement.innerHTML = html;
 
-        //Update page title
-        document.title = pageTitle;
+                //Update page title
+                document.title = pageTitle;
+
+                // Get current link
+                const currentLink = document.getElementById(pageId);
+
+                // Remove 'active' from all nav links
+                linkElements.forEach(link => link.parentElement.classList.remove('active'));
+
+                // Remove 'aria-current' attribute from all nav links
+                linkElements.forEach(link => link.setAttribute('aria-current', ''));
+
+                // Add 'active' to the current link 
+                currentLink.parentElement.classList.add('active');
+
+                // Add 'aria-current' attribute to the current link element
+                currentLink.setAttribute('aria-current', 'page');
+
+                // Call necessary javascript for the home page
+                if (pageId == 'homePage') {
+                    modalRunner();
+                }
+
+                // Call necessary javascript for the schedule page
+                if (pageId == 'schedulePage') {
+                    formRunner();
+                    toggleRunner();
+                }
+
+                // Get loaded content from document
+                const content = document.getElementById(pageId.replace('Page', 'Content'));
+                // Set tabIndex=-1 for focus management to automatically shift to relevant elemet
+                content.setAttribute('tabIndex', '-1');
+                // Focusing header
+                content.focus();
+
+
+            })
+            .catch(error => {
+                console.error('An error ocurred:', error);
+            });
+
     }
-
-
-    // Event listener for the 'Home' link
-    document.getElementById('homeLink').addEventListener('click', function () {
-        // Set the state for the 'Home' page
-        state.pageId = 'homePage';
-        state.pageTitle = 'Empower Ability Labs - Home';
-        // Update the browser's history state without reloading the page
-        window.history.pushState(state, null, "");
-        // Call the render function to update the page content based on the current state
-        render(state);
-    });
-
-    // Event listener for the 'Services' link
-    document.getElementById('servicesLink').addEventListener('click', function () {
-        // Set the state for the 'Services' page
-        state.pageId = 'servicesPage';
-        state.pageTitle = 'Empower Ability Labs - Services';
-        // Update the browser's history state without reloading the page
-        window.history.pushState(state, null, "");
-        // Call the render function to update the page content based on the current state
-        render(state);
-    });
-
-    // Event listener for the 'Schedule a Call' link
-    document.getElementById('scheduleLink').addEventListener('click', function () {
-        // Set the state for the 'Schedule a Call' page
-        state.pageId = 'schedulePage';
-        state.pageTitle = 'Empower Ability Labs - Schedule a call';
-        // Update the browser's history state without reloading the page
-        window.history.pushState(state, null, "");
-        // Call the render function to update the page content based on the current state
-        render(state);
-    });
-
 
 }
 
@@ -128,8 +220,22 @@ function modalRunner() {
 
     // Optional: Close modal when pressing ESC key
     window.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && modal.style.display === 'block') {
+        if (event.key == 'Escape' && modal.style.display != 'none') {
             hideModal();
+        }
+
+        // Preventing focus trap for modal
+        if (event.key == 'Tab' && modal.style.display != 'none') {
+
+            event.preventDefault();
+
+            if(document.activeElement == hideModalButton){
+                closeModalButton.focus();
+            }
+            else {
+                hideModalButton.focus();
+            }
+         
         }
     });
 
@@ -242,11 +348,9 @@ function formRunner() {
             message.hidden = false;
             // Reset all form fields
             document.getElementById("formSchedule").reset();
-            divElement.setAttribute('hidden', '');  
+            divElement.setAttribute('hidden', '');
             scheduleButton.focus();
-
         }
-
     }
 
 
@@ -310,10 +414,6 @@ function mainRunner() {
 
     singlePageRunner();
     navigationRunner();
-    modalRunner();
-    toggleRunner();
-    formRunner();
-
 }
 
 mainRunner();
