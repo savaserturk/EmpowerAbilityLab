@@ -220,12 +220,12 @@ function modalRunner() {
 
     // Optional: Close modal when pressing ESC key
     window.addEventListener('keydown', function (event) {
-        if (event.key == 'Escape' && modal.style.display != 'none') {
+        if (event.key == 'Escape' && modal.style.display == 'block') {
             hideModal();
         }
 
         // Preventing focus trap for modal
-        if (event.key == 'Tab' && modal.style.display != 'none') {
+        if (event.key == 'Tab' && modal.style.display == 'block') {
 
             event.preventDefault();
 
@@ -243,7 +243,7 @@ function modalRunner() {
     function showModal() {
         modal.classList.add('show'); // Add 'show' class to display the modal
         modal.style.display = 'block'; // Ensure modal is displayed
-        modal.setAttribute('aria-hidden', 'false');
+        modal.removeAttribute('aria-hidden');
         modal.focus();
     }
 
