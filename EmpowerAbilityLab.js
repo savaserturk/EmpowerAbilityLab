@@ -145,7 +145,7 @@ function singlePageRunner() {
                 linkElements.forEach(link => link.parentElement.classList.remove('active'));
 
                 // Remove 'aria-current' attribute from all nav links
-                linkElements.forEach(link => link.setAttribute('aria-current', ''));
+                linkElements.forEach(link => link.removeAttribute('aria-current'));
 
                 // Add 'active' to the current link 
                 currentLink.parentElement.classList.add('active');
