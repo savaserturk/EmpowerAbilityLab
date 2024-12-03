@@ -52,7 +52,6 @@ legend {
     width: auto;
 }
 
-
 /* CSS for Skip to main content */
 #skippy {
     overflow: hidden;
@@ -72,9 +71,17 @@ legend {
     outline: 1px dotted;
 }
 
-
 div[id='idTellUsAbout'] {
     margin-left: -3em;
+}
+
+/* Button focus and hover */
+.btn-dark.focus, .btn-dark:focus,
+.btn-dark.hover, .btn-dark:hover  {
+    box-shadow: #def 0px 0px 0px 0.5rem !important;
+    outline: 2px solid rgb(21, 23, 24) !important;
+    outline-offset: 2px !important;
+    background-color: #303538;
 }
 
 /* CSS for Switch Toggle */
