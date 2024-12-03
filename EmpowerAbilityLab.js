@@ -122,7 +122,7 @@ function singlePageRunner() {
     function showPage(pageId, pageTitle) {
 
         // Load source html and set the main content
-        fetch('/html/' + pageId.replace('Page', '.html'))
+        fetch('./html/' + pageId.replace('Page', '.html'))
             .then(response => response.text())
             .then(html => {
 
