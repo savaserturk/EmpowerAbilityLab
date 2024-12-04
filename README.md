@@ -43,8 +43,8 @@ The goal is to create a website that conforms to WCAG 2.1 AA guidelines and ARIA
 The project has been tested with screen readers and keyboard-only navigation to ensure full accessibility compliance.
 
 ## GitHub Repository and Deployment
-- **Repository URL**: [https://github.com/savaserturk/EmpowerAbilityLab.git](#)
-- **Deployed SPA URL**: [https://savaserturk.github.io/EmpowerAbilityLab/EmpowerAbilityLab.html](#)
+- **Repository URL**: [https://github.com/savaserturk/EmpowerAbilityLab.git](https://github.com/savaserturk/EmpowerAbilityLab.git)
+- **Deployed SPA URL**: [https://savaserturk.github.io/EmpowerAbilityLab/EmpowerAbilityLab.html](https://savaserturk.github.io/EmpowerAbilityLab/EmpowerAbilityLab.html)
 
 ## Challenge and Solution
 
