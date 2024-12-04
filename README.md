@@ -38,6 +38,7 @@ The goal is to create a website that conforms to WCAG 2.1 AA guidelines and ARIA
 - `EmpowerAbilityLab.CSS`: Custom styles.
 - `EmpowerAbilityLab.JS`: JavaScript for interactive components and ARIA implementation.
 - `images/`: Folder containing project images.
+- `html/`: Folder containing html content for pages.
 
 ## Accessibility Testing
 The project has been tested with screen readers and keyboard-only navigation to ensure full accessibility compliance.
