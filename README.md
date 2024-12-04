@@ -46,15 +46,11 @@ The project has been tested with screen readers and keyboard-only navigation to 
 - **Repository URL**: [https://github.com/savaserturk/EmpowerAbilityLab.git](#)
 - **Deployed SPA URL**: [https://savaserturk.github.io/EmpowerAbilityLab/EmpowerAbilityLab.html](#)
 
-## Challenges and Solutions
-1. **Challenge**: Ensuring full accessibility with custom components.
-   - **Solution**: Followed ARIA authoring practices and tested with screen readers.
-   
-2. **Challenge**: Implementing keyboard-only navigation for interactive elements.
-   - **Solution**: Used proper `tabindex` values and keyboard event listeners for smooth navigation.
-   
-3. **Challenge**: Handling dynamic content in modals and forms.
-   - **Solution**: Focus management was implemented to shift the focus to relevant content when a modal or form is triggered.
+## Challenge and Solution
+
+1. **Challenge**: Preventing keyboard traps in interactive elements.
+   - **Solution**: We implemented focus management to ensure that users cannot get stuck in modals or other interactive components. We ensured that focus moves to the relevant element and that users can navigate out of these components using the `Tab` key or the `Esc` key to close them.
+
 
 ## Group Members
 - **Gulsah Avsar** - Student Number: 041052497
