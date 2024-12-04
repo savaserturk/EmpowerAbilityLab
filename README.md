@@ -9,28 +9,29 @@ The goal is to create a website that conforms to WCAG 2.1 AA guidelines and ARIA
 ## Features
 
 ### 1. **Single-Page App (SPA)**
-   - **Focus Management**: This feature ensures that when users interact with different sections of the website, focus is automatically shifted to the most relevant section. This improves the user experience, particularly for users relying on screen readers and keyboard navigation. It also enhances navigation for users with motor disabilities, providing smooth transitions.
-   - **Unique Page Titles**: Each section of the SPA has a unique page title that reflects its content. This is crucial for accessibility, as it helps users with screen readers to understand the current context of the page. The unique titles are also helpful for users navigating using the browser’s history or back button.
-   - **Browser Back Button Sync**: The application properly integrates with the browser’s back button functionality, ensuring that the browser history is in sync with the user’s navigation within the SPA. When users navigate through sections, they can use the back button to return to the previous state without losing any context.
+   - **Focus Management**: We implemented automatic focus shifts to ensure that when users interact with different sections, focus moves to the relevant content, improving navigation for keyboard and screen reader users.
+   - **Unique Page Titles**: We assigned dynamic page titles to each section, updating them as users navigate. This helps users understand the context of the page, particularly for screen readers.
+   - **Browser Back Button Sync**: We ensured that the back button functionality works as expected within the SPA, so users can return to previous sections without losing context.
 
 ### 2. **Layout Design**
-   - **Responsive Design**: The SPA is fully responsive, adapting seamlessly to various screen sizes. Whether users are viewing the website on a desktop, tablet, or smartphone, the layout will adjust to provide an optimal viewing experience. This is achieved using CSS media queries, ensuring that all content is easily accessible across all devices.
-   - **User-Friendly and Accessible Design**: The layout focuses on simplicity and ease of use, with clear navigation and readable text. We’ve ensured that color contrasts meet WCAG 2.1 AA standards, making the site accessible to users with visual impairments. The design prioritizes content clarity, with large clickable areas and easy-to-read fonts, ensuring a smooth experience for all users.
+   - **Responsive Design**: Our SPA adjusts seamlessly across different screen sizes. We used CSS media queries to ensure content is accessible on desktops, tablets, and smartphones.
+   - **User-Friendly Design**: We focused on clear navigation, readable text, and ensured that color contrast met WCAG 2.1 AA standards for better accessibility.
 
 ### 3. **HTML Semantics**
-   - **Proper Page Structure**: The SPA utilizes semantic HTML tags such as `<header>`, `<nav>`, `<main>`, `<footer>`, and `<section>`, ensuring the document structure is clear and logical. This not only benefits SEO but also improves accessibility for screen readers.
-   - **Content and Headings**: Headings are appropriately used to structure content and create a clear hierarchy. This allows screen reader users to easily navigate through sections. Each section is introduced with a descriptive heading, ensuring users know exactly where they are within the page.
+   - **Proper Structure**: We used semantic HTML tags like `<header>`, `<nav>`, `<main>`, and `<footer>`, creating a clear and accessible structure for the page.
+   - **Content & Headings**: We ensured proper use of headings to create a clear content hierarchy, making navigation easier for screen readers.
 
 ### 4. **Interactive Components**
-   - **Navigation Bar**: The navigation bar provides an intuitive and accessible way for users to jump to different sections of the website. It is fully keyboard-navigable, with each link focusable using the `tab` key. The navigation is also responsive, collapsing into a mobile-friendly format on smaller screens.
-   - **Lightbox/Modal**: The Lightbox/Modal displays content such as community information or additional details about services. It is accessible, with proper ARIA roles, and users can easily close the modal using either a close button or the `Esc` key. Focus management is implemented to ensure users are directed to the modal content when it is opened.
-   - **Switch Component**: The interactive switch allows users to toggle between different options, such as toggling email notifications. The switch is fully keyboard-accessible, and its state (on/off) is clearly communicated to assistive technologies via ARIA attributes.
-   - **Show/Hide Feature (Form - Tell Us About Your Event)**: This feature dynamically displays a text area when the "Invite a speaker to your event" checkbox is selected. The form’s show/hide behavior enhances user experience by reducing clutter and providing relevant options only when needed.
+   - **Navigation Bar**: We made the navigation bar fully keyboard-accessible, with links that users can focus on using the `tab` key. The bar also collapses responsively for mobile devices.
+   - **Lightbox/Modal**: We created an accessible modal for additional content. Users can easily open and close the modal using either a close button or the `Esc` key.
+   - **Switch Component**: We designed an interactive toggle that allows users to switch options, like email notifications. This component is fully keyboard-navigable and uses ARIA attributes for screen reader support.
+   - **Show/Hide Feature**: We added a dynamic form feature that reveals extra fields only when needed, improving the form’s usability and keeping the interface clean.
 
 ### 5. **Web Form**
-   - **Keyboard Accessibility**: All form fields and interactive elements within the web form are fully navigable using the keyboard, including text inputs, checkboxes, and buttons. Users can move through the form easily with the `Tab` key and interact with form elements using the `Enter` key or `Spacebar`.
-   - **Error Validation**: The form performs real-time validation, ensuring that required fields are filled out and that data types (such as email addresses) are correctly entered. If an error is detected, users are immediately notified with clear, accessible error messages, which are conveyed via both visual cues and ARIA live regions.
-   - **User Notifications**: After submitting the form, users receive a notification confirming their submission. A "thank you" message is displayed for successful submissions, and error messages are shown if any required fields are missing or incorrectly filled. Notifications are communicated clearly with assistive technologies to ensure all users are aware of the form’s status.
+   - **Keyboard Accessibility**: We ensured that all form fields are fully navigable using the keyboard, allowing users to fill out forms easily.
+   - **Error Validation**: Our form includes real-time validation to ensure that users fill in required fields correctly. We provide clear error messages if something goes wrong.
+   - **User Notifications**: After form submission, users are notified with either a confirmation message or error alerts, ensuring they know the status of their submission.
+
 
 ## File Structure
 - `EmpowerAbilityLab.html`: Main HTML template based on Bootstrap.
